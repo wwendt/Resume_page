@@ -22,7 +22,9 @@
 var formattedName = HTMLheaderName.replace("%data%", name);
 var role = "Web Developer";
 
+
 var formattedRole = HTMLheaderRole.replace("%data%", role);
+var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bioPic);
 
 
  //bio["city"] = "St. Louis";
@@ -35,12 +37,12 @@ var education = {
 	"schools": [
 		{
 			"name": "University of Miami",
-			"city": "Miami, Fl, US",
+			"location": "Miami, Florida",
 			"major": ["Finance", "Marketing"]
 		},
 		{
 			"name": "Washington University in St. Louis",
-			"city": "St. Louis, Mo, US",
+			"location": "St. Louis, Misouri",
 			"degree": "MBA"
 		}
 
@@ -87,6 +89,9 @@ var projects = {
 
  	$("#header").prepend(formattedName);
  	$("#header").append(formattedRole);
+ 	$("#header").append(formattedHTMLbioPic);
+
+ 	//$("#education").append
  	//$("#main").append(skills);
  	//$("#main").append(bio.welcomeMessage);
  	//$("#main").append(bio.education);
@@ -151,6 +156,9 @@ function displayWork() {
  	var y = loc.pageY;
  	logClicks(x,y);
  });
+
+ $("#mapDiv").append(googleMap);
+ //$("#education").append
 
 
  	
