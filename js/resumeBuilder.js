@@ -10,7 +10,9 @@
  	"role": "Web Developer",
  	"contacts": {
  		"mobile": "650-666-666",
- 		"email": "john@example.com"
+ 		"email": "john@example.com",
+ 		"github": "https://github.com/wwendt/Resume_page",
+ 		"location": "San Francisco, California"
  	},
  	"welcomeMessage": "blah blah",
  	"skills": [
@@ -19,12 +21,18 @@
  	"bioPic": "images/chris_farley.jpg"
  }
 
-var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var role = "Web Developer";
 
 
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bioPic);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedWelcomemessage = 
+
+$("#header").prepend(formattedName);
+ 	$("#header").append(formattedRole);
+ 	$("#header").append(formattedHTMLbioPic);
+
 
 
  //bio["city"] = "St. Louis";
@@ -38,37 +46,48 @@ var education = {
 		{
 			"name": "University of Miami",
 			"location": "Miami, Florida",
-			"major": ["Finance", "Marketing"]
+			"degree": "BBA",
+			"majors": ["Finance", "Marketing"],
+			"dates": "2006-2010",
+			"url": "string"
 		},
 		{
 			"name": "Washington University in St. Louis",
 			"location": "St. Louis, Misouri",
-			"degree": "MBA"
+			"degree": "MBA",
+			"majors": "MBA",
+			"dates": "2014-2016",
+			"url": "string"
+		},
+	],
+	"onlineCourses": [
+		{
+			"title": "Udacity Frontend Nanodegree",
+			"school": "Udacity",
+			"date": "2015-present",
+			"url": "udacity.com"
 		}
-
 	]
 }
+
+var formattedSchool =  HTMLschoolName.replace("%data%", education.schools[0]);
+$("#education").append(formattedSchool);
 
 var work = {
 	"jobs": [
 		{
 			"employer": "IBM",
 			"title": "Intern",
+			"location": "Denver, Colorado",
 			"dates": "January 3000 - Future",
 			"description": "blah blah"
 		},
-		{
-			"employer": "Panucci's Pizza",
-			"title": "Delivery Boy",
-			"dates": "1998 - December 31, 1999",
-			"description": "blah blah"
-		}
-
+		
 	]
 }
 
 var projects = {
-	"map": [
+	"projects": [
 		{
 			"title": "Sample Project 1",
 			"dates": "2014",
@@ -87,9 +106,8 @@ var projects = {
 
 
 
- 	$("#header").prepend(formattedName);
- 	$("#header").append(formattedRole);
- 	$("#header").append(formattedHTMLbioPic);
+ 	
+ 	
 
  	//$("#education").append
  	//$("#main").append(skills);
@@ -148,7 +166,7 @@ function displayWork() {
  	}
 
  }
-
+projects.display();
 
 
  $(document).click(function(loc) {
@@ -159,6 +177,8 @@ function displayWork() {
 
  $("#mapDiv").append(googleMap);
  //$("#education").append
+ var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+$(".work-entry:last").append(formattedLocation);
 
 
  	
@@ -168,5 +188,5 @@ function displayWork() {
  //console.log(email);
  //console.log(newEmail);
 
- console.log(firstName);
+ 
  //console.log(awesomeThoughts);
