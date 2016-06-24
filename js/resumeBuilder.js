@@ -33,6 +33,9 @@ $("#header").prepend(formattedName);
  	$("#header").append(formattedRole);
  	$("#header").append(formattedHTMLbioPic);
 
+ var formattedContacts = bio.contacts;
+ $("#footerContacts").append(formattedContacts);	
+
 
 
  //bio["city"] = "St. Louis";
@@ -70,8 +73,7 @@ var education = {
 	]
 }
 
-var formattedSchool =  HTMLschoolName.replace("%data%", education.schools[0]);
-$("#education").append(formattedSchool);
+
 
 var work = {
 	"jobs": [
@@ -167,6 +169,22 @@ function displayWork() {
 
  }
 projects.display();
+
+education.display = function() {
+	for (school in education.schools){
+		$('#education').append(HTMLschoolStart);
+		
+		var formattedSchool =  HTMLschoolName.replace("%data%", education.schools[0].name);
+		$("#education").append(formattedSchool);
+
+		var formattedDegree = HTMLschoolDegree.replace("%data", education.schools[0].degree);
+		$('#education').append(formattedDegree);
+
+	}
+
+}
+
+education.display();
 
 
  $(document).click(function(loc) {
