@@ -21,6 +21,8 @@
  	"bioPic": "images/chris_farley.jpg"
  }
 
+
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var role = "Web Developer";
 
@@ -33,9 +35,18 @@ $("#header").prepend(formattedName);
  	$("#header").append(formattedRole);
  	$("#header").append(formattedHTMLbioPic);
 
- var formattedContacts = bio.contacts;
- $("#footerContacts").append(formattedContacts);	
+ var arrayLengthBio = bio.contacts.length;
 
+ function displayBio()	{
+
+ 	for (var i = 0; i < arrayLengthBio; i++){
+
+ 	var formattedContacts = bio.contacts[];
+ 	$("#footerContacts").append(formattedContacts);
+ }	
+}
+
+displayBio();
 
 
  //bio["city"] = "St. Louis";
