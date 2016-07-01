@@ -41,7 +41,7 @@ $("#header").prepend(formattedName);
 
  	for (var i = 0; i < arrayLengthBio; i++){
 
- 	var formattedContacts = bio.contacts[];
+ 	var formattedContacts = bio.contacts[i];
  	$("#footerContacts").append(formattedContacts);
  }	
 }
