@@ -9,9 +9,9 @@
  	"name": "Wes Wendt",
  	"role": "Web Developer",
  	"contacts": {
- 		"mobile": "650-666-666",
- 		"email": "john@example.com",
- 		"github": "https://github.com/wwendt/Resume_page",
+ 		"mobile": "650-666-666 ",
+ 		"email": "john@example.com ",
+ 		"github": "https://github.com/wwendt/Resume_page ",
  		"location": "San Francisco, California"
  	},
  	"welcomeMessage": "blah blah",
@@ -35,16 +35,22 @@ $("#header").prepend(formattedName);
  	$("#header").append(formattedRole);
  	$("#header").append(formattedHTMLbioPic);
 
- var arrayLengthBio = bio.contacts.length;
+ 
 
  function displayBio()	{
+ 	var arrayLengthBio = bio.contacts.length;
 
- 	for (var i = 0; i < arrayLengthBio; i++){
-
- 	var formattedContacts = bio.contacts[i];
- 	$("#footerContacts").append(formattedContacts);
- }	
+ 	for (var contact in bio.contacts){
+  if (bio.contacts.hasOwnProperty(contact)){
+    var formattedContacts = bio.contacts[contact];
+    $("#footerContacts").append(formattedContacts);
+  }
 }
+
+ }
+
+// $("#footerContacts").append(formattedContacts);	
+
 
 displayBio();
 
