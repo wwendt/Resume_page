@@ -6,38 +6,41 @@
          "mobile": "650-666-666 ",
          "email": "john@example.com ",
          "github": "https://github.com/wwendt/Resume_page ",
+         "twitter": "optional",
          "location": "San Francisco, California"
      },
      "welcomeMessage": "blah blah",
      "skills": [
          "front end development", "awesomeness"
      ],
-     "bioPic": "images/chris_farley.jpg"
+     "bioPic": "images/chris_farley.jpg",
+     "display": bio,
  };
 
 
 
- var formattedName = HTMLheaderName.replace("%data%", bio.name);
- var role = "Web Developer";
+ 
 
-
- var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
- var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
- var formattedWelcomemessage =
-
-     $("#header").prepend(formattedName);
- $("#header").append(formattedRole);
- $("#header").append(formattedHTMLbioPic);
+    
 
 
 
- function displayBio() {
+ function bio.display() {
      var arrayLengthBio = bio.contacts.length;
 
      for (var contact in bio.contacts) {
          if (bio.contacts.hasOwnProperty(contact)) {
              var formattedContacts = bio.contacts[contact];
-             $("#footerContacts").append(formattedContacts);
+             var formattedName = HTMLheaderName.replace("%data%", bio.name);
+ 			var role = "Web Developer";
+ 			var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+ 			var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+ 			//var formattedWelcomemessage =
+
+            $("#footerContacts").append(formattedContacts);
+            $("#header").prepend(formattedName);
+ 			$("#header").append(formattedRole);
+ 			$("#header").append(formattedHTMLbioPic);
          }
      }
 
@@ -46,7 +49,7 @@
  // $("#footerContacts").append(formattedContacts);	
 
 
- displayBio();
+ bio.display();
 
 
  //bio["city"] = "St. Louis";
