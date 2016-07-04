@@ -25,7 +25,7 @@
 
 
 
- function bio.display() {
+ bio.display = function() {
      var arrayLengthBio = bio.contacts.length;
 
      for (var contact in bio.contacts) {
