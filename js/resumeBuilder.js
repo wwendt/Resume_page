@@ -139,18 +139,20 @@ bio.display();
  }
 
      work.jobs.forEach(function(val) {
+     	console.log('val: ', val);
+
          $("#workExperience").append(HTMLworkStart);
 
-         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs.employer);
-         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs.title);
+         var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
+         var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
          var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
          $(".work-entry:last").append(formattedEmployerTitle);
 
-         var formattedDates = HTMLworkDates.replace("%data%", work.jobs.dates);
+         var formattedDates = HTMLworkDates.replace("%data%", val.dates);
          $(".work-entry:last").append(formattedDates);
 
-         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs.description);
+         var formattedDescription = HTMLworkDescription.replace("%data%", val.description);
          $(".work-entry:last").append(formattedDescription);
      })
  }
@@ -158,41 +160,41 @@ bio.display();
  work.display();
 
  projects.display = function() {
-     for (project in projects.projects) {
+     projects.projects.forEach(function(val) {
          $("#projects").append(HTMLprojectStart);
 
-         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+         var formattedTitle = HTMLprojectTitle.replace("%data%", val.title);
          $(".project-entry:last").append(formattedTitle);
 
-         var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+         var formattedDates = HTMLprojectDates.replace("%data%", val.dates);
          $(".project-entry:last").append(formattedDates);
 
-         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+         var formattedDescription = HTMLprojectDescription.replace("%data%", val.description);
          $(".project-entry:last").append(formattedDescription);
 
-         if (projects.projects[project].images.length > 0) {
-             for (image in projects.projects[project].images) {
-                 var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+         if (val.images.length > 0) {
+             for (image in val.images) {
+                 var formattedImage = HTMLprojectImage.replace("%data%", val.images[image]);
                  $(".project-entry.last").append(formattedImage);
              }
          }
-     }
+     })
 
  };
 
  projects.display();
 
  education.display = function() {
-     for (school in education.schools) {
+     education.schools.forEach(function(val) {
          $('#education').append(HTMLschoolStart);
 
-         var formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);
+         var formattedSchool = HTMLschoolName.replace("%data%", val.name);
          $(".education-entry").append(formattedSchool);
 
-         var formattedDegree = HTMLschoolDegree.replace("%data", education.schools[school].degree);
+         var formattedDegree = HTMLschoolDegree.replace("%data", val.degree);
          $('.education-entry').append(formattedDegree);
 
-     }
+     })
 
  };
 
