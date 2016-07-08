@@ -35,12 +35,12 @@
      $("#skills").append(formattedSkill);
      formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
  }
-
- if (bio.contacts.hasOwnProperty(contacts)) {
-             var formattedContacts = bio.contacts[contacts];
+        bio.contacts.forEach(function(val) {
+             var formattedContacts = val.contacts[val];
              $("#footerContacts").append(formattedContacts);
-         $("#topContacts").append(formattedContacts);
-     }
+            $("#topContacts").append(formattedContacts);
+     
+     });
 
      for (var i = 0; i < bio.skills.length; i++) {
      	var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
