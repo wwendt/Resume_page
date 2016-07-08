@@ -35,12 +35,26 @@
      $("#skills").append(formattedSkill);
      formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
  }
-        bio.contacts.forEach(function(val) {
-             var formattedContacts = val.contacts[val];
-             $("#footerContacts").append(formattedContacts);
-            $("#topContacts").append(formattedContacts);
-     
-     });
+        
+             //var formattedContacts = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile);
+             var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+             var formattedHTMLemail = HTMLemail.replace("%data%", bio.contacts.email);
+             var formattedHTMLtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+             var formattedHTMLgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+             var formattedHTMLlocation = HTMLlocation.replace("%data%", bio.contacts.location);
+             $("#footerContacts").append(formattedHTMLlocation);
+             $("#footerContacts").append(formattedHTMLgithub);
+             $("#footerContacts").append(formattedHTMLtwitter);
+             $("#footerContacts").append(formattedHTMLemail);
+             //$("#footerContacts").append(formattedContacts);
+             $("#footerContacts").append(formattedHTMLmobile);
+            //$("#topContacts").append(formattedContacts);
+            $("#topContacts").append(formattedHTMLtwitter);
+            $("#topContacts").append(formattedHTMLmobile);
+            $("#topContacts").append(formattedHTMLemail);
+            $("#topContacts").append(formattedHTMLgithub);
+             $("#topContacts").append(formattedHTMLlocation);
+
 
      for (var i = 0; i < bio.skills.length; i++) {
      	var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
@@ -93,7 +107,7 @@ bio.display();
          "degree": "MBA",
          "majors": ["MBA"],
          "dates": "2014-2016",
-         "url": "miami.edu"
+         "url": "wustl.edu"
      }, ],
      "onlineCourses": [{
          "title": "Udacity Frontend Nanodegree",
@@ -184,8 +198,8 @@ bio.display();
          $(".project-entry:last").append(formattedDescription);
 
          if (val.images.length > 0) {
-             for (image in val.images) {
-                 var formattedImage = HTMLprojectImage.replace("%data%", val.images[image]);
+             for (var i = 0; i < val.images.length; i++) {
+                 var formattedImage = HTMLprojectImage.replace("%data%", val.images[i]);
                  $(".project-entry:last").append(formattedImage);
              }
          }
@@ -207,8 +221,32 @@ bio.display();
          var formattedDegree = HTMLschoolDegree.replace("%data", val.degree);
          $('.education-entry').append(formattedDegree);
 
+         var formattedHTMLschoolDates = HTMLschoolDates.replace("%data%", val.dates);
+         $('.education-entry').append(formattedHTMLschoolDates);
+
+         var formattedHTMLschoolLocation = HTMLschoolLocation.replace("%data%", val.location);
+         $('.education-entry').append(formattedHTMLschoolLocation);
+
+         for (var i = 0; i < val.majors.length; i++){
+         var formattedHTMLschoolMajor = HTMLschoolMajor.replace("%data%", val.majors[i]);
+         $('.education-entry').append(formattedHTMLschoolMajor);
+     }
+
+
      });
 
+     education.onlineCourses.forEach(function(val) {
+     var formattedHTMLonlineClasses = HTMLonlineClasses.replace("%data%", val.title);
+     $('.education-entry').append(formattedHTMLonlineClasses);
+     var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%", val.title);
+     $('.education-entry').append(formattedHTMLonlineTitle);
+     var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", val.school);
+     $('.education-entry').append(formattedHTMLonlineSchool);
+     var formattedHTMLonlineDates = HTMLonlineDates.replace("%data%", val.date);
+     $('.education-entry').append(formattedHTMLonlineDates);
+     var formattedHTMLonlineURL = HTMLonlineURL.replace("%data%", val.url);
+      $('.education-entry').append(formattedHTMLonlineURL);
+ });
  };
 
  education.display();
