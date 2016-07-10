@@ -9,12 +9,12 @@
         "twitter": "optional",
         "location": "San Francisco, California"
     },
-    "welcomeMessage": "blah blah",
+    "welcomeMessage": "Welcome to my web resume",
     "skills": [
         "front end development", "awesomeness"
     ],
     "biopic": "images/chris_farley.jpg",
-    "display": bio,
+   // "display": bio,
 };
 
 
@@ -23,15 +23,27 @@
 bio.display = function() {
     var arrayLengthBio = bio.contacts.length;
 
-    if (bio.skills.length > 0) {
-        $("#header").append(HTMLskillsStart);
+    
 
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    }
+   // if (bio.skills.length > 0) {
+       // $("#header").append(HTMLskillsStart);
+
+      //  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        //$("#skills").append(formattedSkill);
+        //formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    //}
 
     //var formattedContacts = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile);
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var role = "Web Developer";
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
+    var formattedHTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedHTMLwelcomeMsg);
+
+    $("#header").prepend(formattedName);
+    $("#header").append(formattedRole);
+    $("#header").append(formattedHTMLbioPic);
     var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedHTMLemail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedHTMLtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
@@ -50,29 +62,20 @@ bio.display = function() {
     $("#topContacts").append(formattedHTMLgithub);
     $("#topContacts").append(formattedHTMLlocation);
 
-
+    $("#header").append(HTMLskillsStart);
     for (var i = 0; i < bio.skills.length; i++) {
+        
         var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
         $("#skills").append(formattedSkills);
 
 
-
         //var formattedWelcomemessage =
-
-
     }
 
 
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var role = "Web Developer";
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
 
-$("#header").prepend(formattedName);
-$("#header").append(formattedRole);
-$("#header").append(formattedHTMLbioPic);
 
 
 
@@ -155,13 +158,16 @@ var projects = {
 
 work.display = function() {
 
-    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs.location);
-    $(".work-entry:last").append(formattedLocation);
+    
 
     work.jobs.forEach(function(val) {
         console.log('val: ', val);
+        
 
         $("#workExperience").append(HTMLworkStart);
+
+        var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
+        $(".work-entry:last").append(formattedLocation);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
@@ -213,7 +219,7 @@ education.display = function() {
         var formattedSchool = HTMLschoolName.replace("%data%", val.name);
         $(".education-entry").append(formattedSchool);
 
-        var formattedDegree = HTMLschoolDegree.replace("%data", val.degree);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", val.degree);
         $('.education-entry').append(formattedDegree);
 
         var formattedHTMLschoolDates = HTMLschoolDates.replace("%data%", val.dates);
@@ -229,10 +235,10 @@ education.display = function() {
 
 
     });
-
+    var formattedHTMLonlineClasses = HTMLonlineClasses.replace("%data%", education.onlineCourses.title);
+    $('.education-entry').append(formattedHTMLonlineClasses);
     education.onlineCourses.forEach(function(val) {
-        var formattedHTMLonlineClasses = HTMLonlineClasses.replace("%data%", val.title);
-        $('.education-entry').append(formattedHTMLonlineClasses);
+        
         var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%", val.title);
         $('.education-entry').append(formattedHTMLonlineTitle);
         var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", val.school);
