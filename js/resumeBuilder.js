@@ -14,7 +14,7 @@
         "front end development", "awesomeness"
     ],
     "biopic": "images/chris_farley.jpg",
-   // "display": bio,
+    // "display": bio,
 };
 
 
@@ -23,14 +23,14 @@
 bio.display = function() {
     var arrayLengthBio = bio.contacts.length;
 
-    
 
-   // if (bio.skills.length > 0) {
-       // $("#header").append(HTMLskillsStart);
 
-      //  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        //$("#skills").append(formattedSkill);
-        //formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    // if (bio.skills.length > 0) {
+    // $("#header").append(HTMLskillsStart);
+
+    //  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    //$("#skills").append(formattedSkill);
+    //formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
     //}
 
     //var formattedContacts = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile);
@@ -64,7 +64,7 @@ bio.display = function() {
 
     $("#header").append(HTMLskillsStart);
     for (var i = 0; i < bio.skills.length; i++) {
-        
+
         var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
         $("#skills").append(formattedSkills);
 
@@ -74,7 +74,6 @@ bio.display = function() {
 
 
 };
-
 
 
 
@@ -158,11 +157,11 @@ var projects = {
 
 work.display = function() {
 
-    
+
 
     work.jobs.forEach(function(val) {
         console.log('val: ', val);
-        
+
 
         $("#workExperience").append(HTMLworkStart);
 
@@ -238,7 +237,7 @@ education.display = function() {
     var formattedHTMLonlineClasses = HTMLonlineClasses.replace("%data%", education.onlineCourses.title);
     $('.education-entry').append(formattedHTMLonlineClasses);
     education.onlineCourses.forEach(function(val) {
-        
+
         var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%", val.title);
         $('.education-entry').append(formattedHTMLonlineTitle);
         var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", val.school);
@@ -261,8 +260,6 @@ $(document).click(function(loc) {
 
 $("#mapDiv").append(googleMap);
 //$("#education").append
-
-
 
  //console.log(email);
  //console.log(newEmail);
